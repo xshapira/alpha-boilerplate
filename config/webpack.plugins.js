@@ -11,8 +11,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const RobotstxtPlugin = require('robotstxt-webpack-plugin');
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
 const config = require('./site.config');
 
@@ -34,12 +32,6 @@ const optimizeCss = new OptimizeCssAssetsPlugin({
     ],
   },
   canPrint: true,
-});
-
-// Generate robots.txt
-const robots = new RobotstxtPlugin({
-  sitemap: `${config.site_url}/sitemap.xml`,
-  host: config.site_url,
 });
 
 // Clean webpack
@@ -69,12 +61,6 @@ const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map((dir) => {
       viewport: config.viewport,
     },
   });
-});
-
-// Sitemap
-const sitemap = new SitemapPlugin(config.site_url, paths, {
-  priority: 1.0,
-  lastmodrealtime: true,
 });
 
 // Favicons
@@ -136,8 +122,6 @@ module.exports = [
   ...generateHTMLPlugins(),
   fs.existsSync(config.favicon) && favicons,
   config.env === 'production' && optimizeCss,
-  config.env === 'production' && robots,
-  config.env === 'production' && sitemap,
   config.googleAnalyticsUA && google,
   webpackBar,
   config.env === 'development' && hmr,

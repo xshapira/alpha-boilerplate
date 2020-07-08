@@ -14,9 +14,6 @@ const config = {
   // Your website's description, used for favicon meta tags
   site_description: 'A Cruip template',
 
-  // Your website's URL, used for sitemap
-  site_url: 'https://cruip.com',
-
   // Google Analytics tracking ID (leave blank to disable)
   googleAnalyticsUA: '',
 
