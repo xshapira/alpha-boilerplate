@@ -1,1 +1,2 @@
-// Add your scripts here
+// Import Alpine.js
+import 'alpinejs';

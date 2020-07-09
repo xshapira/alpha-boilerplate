@@ -1,0 +1,184 @@
+:focus,
+button:focus {
+    @apply outline-none shadow-outline;
+}
+
+$range-thumb-size: 36px;
+
+input[type=range] {
+    appearance: none;
+    background: #ccc;
+    border-radius: 3px;
+    height: 6px;
+    margin-top: ($range-thumb-size - 6px) / 2;
+    margin-bottom: ($range-thumb-size - 6px) / 2;
+    --thumb-size: #{$range-thumb-size};  
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #000;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 .5v7L12 4zM0 4l4 3.5v-7z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: $range-thumb-size;
+        width: $range-thumb-size;            
+    }
+
+    &::-moz-range-thumb {
+        background-color: #000;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 .5v7L12 4zM0 4l4 3.5v-7z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        height: $range-thumb-size;
+        width: $range-thumb-size;
+    }
+    
+    &::-ms-thumb {
+        background-color: #000;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 .5v7L12 4zM0 4l4 3.5v-7z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: $range-thumb-size;
+        width: $range-thumb-size;
+    }
+    
+    &::-moz-focus-outer {
+        border: 0;
+    }
+}
+
+// typography
+.h1 {
+    @apply text-4xl font-extrabold leading-tight tracking-tighter;
+}
+
+.h2 {
+    @apply text-3xl font-extrabold leading-tight tracking-tighter;
+}
+
+.h3 {
+    @apply text-3xl font-bold leading-tight;
+}
+
+.h4 {
+    @apply text-2xl font-bold leading-snug tracking-tight;
+}
+
+@screen md {
+    .h1 {
+        @apply text-5xl;
+    }
+
+    .h2 {
+        @apply text-4xl;
+    }
+}
+
+// buttons
+.btn,
+.btn-sm {
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-sm transition duration-150 ease-in-out;
+}
+
+.btn {
+    @apply px-8 py-3 leading-snug;
+}
+
+.btn-sm {
+    @apply px-4 py-2 leading-tight;
+}
+
+// Hamburger
+.hamburger-01 {
+
+    svg > * {
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            transform-origin: center;
+        }
+
+        &:nth-child(1) {
+            transition: y 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.1s ease-in;
+        }
+
+        &:nth-child(2) {
+            transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        &:nth-child(3) {
+            transition: y 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19), width 0.1s 0.25s ease-in;
+        }        
+    }
+
+    &.active {
+
+        svg > * {
+
+            &:nth-child(1) {
+                opacity: 0;
+                y: 11;
+                transform: rotate(225deg);
+                transition: y 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.1s 0.12s ease-out;
+            }
+    
+            &:nth-child(2) {
+                transform: rotate(225deg);
+                transition: transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+    
+            &:nth-child(3) {
+                y: 11;
+                transform: rotate(135deg);
+                transition: y 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.1s ease-out;   
+            }
+        }
+    }
+}
+
+// Switch
+.form-switch {
+
+    @apply relative select-none;
+    width: 60px;
+
+    label {
+        @apply block overflow-hidden cursor-pointer h-8 rounded-full;
+
+        > span:first-child {
+            @apply absolute block rounded-full;
+            width: 28px;
+            height: 28px;
+            top: 2px;
+            left: 2px;
+            right: 50%;
+            transition: all .15s ease-out;
+        }
+    }
+
+    input[type="checkbox"] {
+    
+        &:checked {
+
+            + label {
+                @apply bg-purple-600;
+
+                > span:first-child {
+                    left: 30px;
+                }
+            }
+        }
+    }
+}

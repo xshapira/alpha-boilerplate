@@ -1,1 +1,13 @@
-// Add your styles here
+@tailwind base;
+
+@tailwind components;
+
+@import 'components/components.scss';
+
+@tailwind utilities;
+
+@responsive {
+    .rtl {
+        direction: rtl;
+    }
+}

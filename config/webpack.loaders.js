@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./site.config');
 
@@ -48,7 +49,7 @@ const postcssLoader = {
   loader: 'postcss-loader',
   options: {
     plugins: [
-      // eslint-disable-next-line global-require
+      require('tailwindcss')('./config/tailwind.config.js'),
       require('autoprefixer')(),
     ],
     sourceMap,
