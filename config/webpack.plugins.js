@@ -104,7 +104,8 @@ class GoogleAnalyticsPlugin {
       HTMLWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
         'GoogleAnalyticsPlugin',
         (data, cb) => {
-          data.html = data.html.replace('</head>', `${CODE.replace('{{ID}}', this.id)}</head>`); /* eslint no-param-reassign: ["error", { "props": false }] */
+          // eslint-disable-next-line no-param-reassign
+          data.html = data.html.replace('</head>', `${CODE.replace('{{ID}}', this.id)}</head>`);
           cb(null, data);
         },
       );

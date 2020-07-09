@@ -1,5 +1,6 @@
 const path = require('path');
 const config = require('./site.config');
+// eslint-disable-next-line import/order
 const FtpDeploy = require('ftp-deploy');
 
 const ftpDeploy = new FtpDeploy();
