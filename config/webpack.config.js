@@ -12,6 +12,7 @@ module.exports = {
   ],
   output: {
     path: path.join(config.root, config.paths.dist),
+    publicPath: '',
     filename: '[name].[hash].js',
   },
   mode: ['production', 'development'].includes(config.env)
