@@ -1,12 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>Static Site Boilerplate</title>
-    <meta name="description" content="" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Open PRO Demo - Home</title>
 </head>
-<body>
-    <h1>test</h1>
-    <img src="images/test.jpg" alt="">
+
+<body class="font-inter antialiased bg-gray-900 text-gray-200 tracking-tight">
+
+    <div class="flex flex-col min-h-screen overflow-hidden">
+
+        <header class="relative z-30">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0 mr-4">
+                        <a class="block" href="index.html">
+                            <svg class="w-8 h-8 fill-current text-purple-600" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M31.952 14.751a260.51 260.51 0 00-4.359-4.407C23.932 6.734 20.16 3.182 16.171 0c1.634.017 3.21.28 4.692.751 3.487 3.114 6.846 6.398 10.163 9.737.493 1.346.811 2.776.926 4.262zm-1.388 7.883c-2.496-2.597-5.051-5.12-7.737-7.471-3.706-3.246-10.693-9.81-15.736-7.418-4.552 2.158-4.717 10.543-4.96 16.238A15.926 15.926 0 010 16C0 9.799 3.528 4.421 8.686 1.766c1.82.593 3.593 1.675 5.038 2.587 6.569 4.14 12.29 9.71 17.792 15.57-.237.94-.557 1.846-.952 2.711zm-4.505 5.81a56.161 56.161 0 00-1.007-.823c-2.574-2.054-6.087-4.805-9.394-4.044-3.022.695-4.264 4.267-4.97 7.52a15.945 15.945 0 01-3.665-1.85c.366-3.242.89-6.675 2.405-9.364 2.315-4.107 6.287-3.072 9.613-1.132 3.36 1.96 6.417 4.572 9.313 7.417a16.097 16.097 0 01-2.295 2.275z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <nav class="hidden md:flex md:flex-grow">
+                        <ul class="flex flex-grow justify-end flex-wrap items-center">
+                            <li>
+                                <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="features.html">Features</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="pricing.html">Pricing</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="blog.html">Blog</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="about.html">About us</a>
+                            </li>
+
+                            <li class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                                <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="#0" aria-haspopup="true" :aria-expanded="open" @focus="open = true" @focusout="open = false" @click.prevent="">
+                                    Support
+                                    <svg class="w-3 h-3 fill-current text-gray-500 cursor-pointer ml-1 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.28 4.305L5.989 8.598 1.695 4.305A1 1 0 00.28 5.72l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z"></path>
+                                    </svg>
+                                </a>
+
+                                <ul class="origin-top-right absolute top-full right-0 w-40 bg-gray-800 py-2 ml-4 rounded-sm" x-show="open" x-transition:enter="ease-out duration-200 transform" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="ease-out duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                                    <li>
+                                        <a class="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight" href="contact.html" @focus="open = true" @focusout="open = false">Contact us</a>
+                                    </li>
+                                    <li>
+                                        <a class="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight" href="help.html" @focus="open = true" @focusout="open = false">Help center</a>
+                                    </li>
+                                    <li>
+                                        <a class="font-medium text-sm text-gray-400 hover:text-purple-600 flex py-2 px-4 leading-tight" href="404.html" @focus="open = true" @focusout="open = false">404</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="flex flex-grow justify-end flex-wrap items-center">
+                            <li>
+                                <a class="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out" href="signin.html">Sign in</a>
+                            </li>
+                            <li>
+                                <a class="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3" href="signup.html">Sign up</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="md:hidden" x-data="{ expanded: false }">
+                        <button class="hamburger-01" :class="{ 'active': expanded }" @click.stop="expanded = !expanded" aria-controls="mobile-nav" :aria-expanded="expanded">
+                            <span class="sr-only">Menu</span>
+                            <svg class="w-6 h-6 fill-current text-gray-300 hover:text-gray-200 transition duration-150 ease-in-out" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="4" width="24" height="2" rx="1"></rect>
+                                <rect y="11" width="24" height="2" rx="1"></rect>
+                                <rect y="18" width="24" height="2" rx="1"></rect>
+                            </svg>
+                        </button>
+                        <nav id="mobile-nav" class="absolute top-full z-20 left-0 w-full overflow-hidden bg-gray-800 transition-all duration-300 ease-in-out" x-ref="nav" :style="expanded ? 'max-height: ' + $refs.nav.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: .8'" @click.away="expanded = false">
+                            <ul class="px-4 sm:px-6 py-2">
+                                <li>
+                                    <a class="flex text-gray-300 hover:text-gray-200 py-2" href="features.html">Features</a>
+                                </li>
+                                <li>
+                                    <a class="flex text-gray-300 hover:text-gray-200 py-2" href="pricing.html">Pricing</a>
+                                </li>
+                                <li>
+                                    <a class="flex text-gray-300 hover:text-gray-200 py-2" href="blog.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a class="flex text-gray-300 hover:text-gray-200 py-2" href="about.html">About us</a>
+                                </li>
+                                <li class="py-2 my-2 border-t border-b border-gray-700">
+                                    <span class="flex text-gray-300 py-2">Support</span>
+                                    <ul class="pl-2">
+                                        <li>
+                                            <a class="text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2" href="contact.html">- Contact us</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2" href="help.html">- Help center</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2" href="404.html">- 404</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center" href="signin.html">Sign in</a>
+                                </li>
+                                <li>
+                                    <a class="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" href="signup.html">Sign up</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-grow">
+            <section class="relative">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 relative">
+                    <div class="pt-20 pb-16">
+                        <div class="max-w-3xl mx-auto text-center pb-16">
+                            <h1 class="h1 mb-4">Landing template for startups</h1>
+                            <p class="text-xl text-gray-400 mb-8">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
+                            <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
+                                <a class="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Start free trial</a>
+                                <a class="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">Learn more</a>
+                            </div>
+                        </div>
+                        <div x-data="{ modalExpanded: false }">
+                            <div class="relative flex justify-center items-center">
+                                <img class="shadow-xl mx-auto" src="images/hero-image-01.jpg" width="1024" height="504" alt="Hero">
+                                <a class="absolute group" @click="modalExpanded = true" href="#0" aria-controls="modal">
+                                    <svg class="w-16 h-16 sm:w-20 sm:h-20 hover:opacity-75 transition duration-150 ease-in-out" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient x1="78.169%" y1="9.507%" x2="24.434%" y2="90.469%" id="a">
+                                                <stop stop-color="#EBF1F5" stop-opacity=".8" offset="0%"></stop>
+                                                <stop stop-color="#EBF1F5" offset="100%"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <circle fill="url(#a)" cx="44" cy="44" r="44"></circle>
+                                        <path class="fill-current text-purple-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div class="fixed inset-0 z-50 bg-black bg-opacity-75 transition-opacity" x-show="modalExpanded" x-transition:enter="ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-out duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" aria-hidden="true"></div>
+
+                            <div id="modal" class="fixed inset-0 z-50 overflow-hidden flex items-center justify-center transform" role="dialog" aria-modal="true" aria-labelledby="modal-headline" x-show="modalExpanded" x-transition:enter="ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-out duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 sm:scale-95">
+                                <div class="bg-white overflow-auto max-w-6xl w-full max-h-full" @click.away="modalExpanded = false">
+                                    <div class="relative pb-9/16">
+                                        <iframe class="absolute w-full h-full" src="https://player.vimeo.com/video/174002812" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="pt-16 pb-20">
+
+                        <div class="max-w-3xl mx-auto text-center pb-20">
+                            <h2 class="h2 mb-4">Built exclusively for you</h2>
+                            <p class="text-xl text-gray-400">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt mollit laborum — semper quis lectus nulla.</p>
+                        </div>
+
+                        <div class="max-w-sm mx-auto grid gap-12 md:grid-cols-3 lg:gap-16 items-start md:max-w-none">
+
+                            <div class="relative flex flex-col items-center">
+                                <div aria-hidden="true" class="absolute h-1 border-t border-dashed border-gray-700 hidden md:block" style="width:calc(100% - 32px);left:calc(50% + 48px);top:32px;"></div>
+                                <svg class="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="fill-current text-purple-600" width="64" height="64" rx="32"></rect>
+                                    <path class="stroke-current text-purple-300" stroke-width="2" stroke-linecap="square" d="M21 23h22v18H21z" fill="none" fill-rule="evenodd"></path>
+                                    <path class="stroke-current text-purple-100" d="M26 28h12M26 32h12M26 36h5" stroke-width="2" stroke-linecap="square"></path>
+                                </svg>
+                                <h4 class="h4 mb-2"><span class="text-gray-400">1</span>. Acquisition</h4>
+                                <p class="text-lg text-gray-400 text-center">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+
+                            <div class="relative flex flex-col items-center">
+                                <div aria-hidden="true" class="absolute h-1 border-t border-dashed border-gray-700 hidden md:block" style="width:calc(100% - 32px);left:calc(50% + 48px);top:32px;"></div>
+                                <svg class="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="fill-current text-purple-600" width="64" height="64" rx="32"></rect>
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path class="stroke-current text-purple-300" d="M40 22a2 2 0 012 2v16a2 2 0 01-2 2H24a2 2 0 01-2-2V24a2 2 0 012-2" stroke-width="2" stroke-linecap="square"></path>
+                                        <path class="stroke-current text-purple-100" stroke-width="2" stroke-linecap="square" d="M36 32l-4-3-4 3V22h8z"></path>
+                                    </g>
+                                </svg>
+                                <h4 class="h4 mb-2"><span class="text-gray-400">2</span>. Activation</h4>
+                                <p class="text-lg text-gray-400 text-center">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+
+                            <div class="relative flex flex-col items-center">
+                                <svg class="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="fill-current text-purple-600" width="64" height="64" rx="32"></rect>
+                                    <path class="stroke-current text-purple-300" stroke-width="2" stroke-linecap="square" d="M21 35l4 4 12-15" fill="none" fill-rule="evenodd"></path>
+                                    <path class="stroke-current text-purple-100" d="M42 29h-3M42 34h-7M42 39H31" stroke-width="2" stroke-linecap="square"></path>
+                                </svg>
+                                <h4 class="h4 mb-2"><span class="text-gray-400">3</span>. Retention</h4>
+                                <p class="text-lg text-gray-400 text-center">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="overflow-hidden">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="py-20 border-t border-gray-700">
+
+                        <div class="grid gap-20">
+
+                            <div class="md:grid md:grid-cols-12 md:gap-6 items-center">
+                                <div class="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1">
+                                    <div class="relative">
+                                        <img class="md:max-w-none" src="images/features-illustration.png" width="540" height="520" alt="Features illustration">
+                                        <svg class="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="540" height="520" viewBox="0 0 540 520" xmlns="http://www.w3.org/2000/svg">
+                                            <style>
+                                                @keyframes pulse {
+                                                    0% {
+                                                        opacity: 0;
+                                                        transform: scale(0.1) translatez(0);
+                                                    }
+
+                                                    40% {
+                                                        opacity: 1;
+                                                    }
+
+                                                    60% {
+                                                        opacity: 1;
+                                                    }
+
+                                                    100% {
+                                                        opacity: 0;
+                                                        transform: scale(2) translatez(0);
+                                                    }
+                                                }
+
+                                                .pulse {
+                                                    transform: scale(0.1);
+                                                    opacity: 0;
+                                                    transform-origin: center;
+                                                    animation: pulse 8000ms linear infinite;
+                                                }
+
+                                                .pulse-1 {
+                                                    animation-delay: -2000ms;
+                                                }
+
+                                                .pulse-2 {
+                                                    animation-delay: -4000ms;
+                                                }
+
+                                                .pulse-3 {
+                                                    animation-delay: -6000ms;
+                                                }
+                                            </style>
+                                            <g class="fill-current text-purple-600">
+                                                <circle class="pulse" cx="270" cy="260" r="64"></circle>
+                                                <circle class="pulse pulse-1" cx="270" cy="260" r="64"></circle>
+                                                <circle class="pulse pulse-2" cx="270" cy="260" r="64"></circle>
+                                                <circle class="pulse pulse-3" cx="270" cy="260" r="64"></circle>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6">
+                                    <div class="md:pr-4 lg:pr-12 xl:pr-16">
+                                        <div class="font-architects-daughter text-xl text-purple-600 mb-2">Lighting fast workflow</div>
+                                        <h3 class="h3 mb-3">Say hello to research data</h3>
+                                        <p class="text-xl text-gray-400 mb-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+                                        <ul class="flex flex-wrap text-lg text-gray-400 -mx-2 -my-1">
+                                            <li class="flex items-center mx-2 my-1">
+                                                <svg class="w-3 h-3 fill-current text-green-500 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"></path>
+                                                </svg>
+                                                <span>Premium statistics</span>
+                                            </li>
+                                            <li class="flex items-center mx-2 my-1">
+                                                <svg class="w-3 h-3 fill-current text-green-500 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"></path>
+                                                </svg>
+                                                <span>Unlimited jobs</span>
+                                            </li>
+                                            <li class="flex items-center mx-2 my-1">
+                                                <svg class="w-3 h-3 fill-current text-green-500 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"></path>
+                                                </svg>
+                                                <span>Free goods</span>
+                                            </li>
+                                            <li class="flex items-center mx-2 my-1">
+                                                <svg class="w-3 h-3 fill-current text-green-500 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"></path>
+                                                </svg>
+                                                <span>No code required</span>
+                                            </li>
+                                            <li class="flex items-center mx-2 my-1">
+                                                <svg class="w-3 h-3 fill-current text-green-500 mr-2 flex-shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"></path>
+                                                </svg>
+                                                <span>Always up to date</span>
+                                            </li>
+                                        </ul>
+                                        <div class="flex items-start mt-8">
+                                            <img class="rounded-full flex-shrink-0 mr-4" src="images/features-avatar.jpg" width="40" height="40" alt="Features avatar">
+                                            <div>
+                                                <blockquote class="text-gray-400 italic mb-3">"Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing".</blockquote>
+                                                <div class="text-gray-700 font-medium">
+                                                    <cite class="text-gray-200 not-italic">— Anastasia Dan</cite> - <a class="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">UX Board</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="overflow-hidden">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="py-20 border-t border-gray-700">
+
+                        <div class="max-w-3xl mx-auto text-center pb-12">
+                            <h2 class="h2 mb-4">Integrated workflow designed for product teams</h2>
+                            <p class="text-xl text-gray-400">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laborum — semper quis lectus nulla.</p>
+                        </div>
+
+                        <div x-data="{ tab: '1' }" class="mb-20">
+                            <div class="flex flex-wrap justify-center -m-2">
+                                <button :class="{ 'opacity-50': tab !== '1' }" class="flex items-center font-medium py-2 px-4 m-2 bg-gray-800 rounded-full group transition duration-500" @click="tab = '1'">
+                                    <svg class="w-4 h-4 fill-current text-purple-600 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 5.5c-.311.001-.62.061-.909.177l-2.268-2.268c.116-.29.176-.598.177-.909a2.5 2.5 0 00-5 0c.001.311.061.62.177.909L3.409 5.677A2.473 2.473 0 002.5 5.5a2.5 2.5 0 000 5c.311-.001.62-.061.909-.177l2.268 2.268c-.116.29-.176.598-.177.909a2.5 2.5 0 105 0 2.473 2.473 0 00-.177-.909l2.268-2.268c.29.116.598.176.909.177a2.5 2.5 0 100-5zM8 11c-.311.001-.62.061-.909.177L4.823 8.909a2.423 2.423 0 000-1.818l2.268-2.268a2.423 2.423 0 001.818 0l2.268 2.268a2.423 2.423 0 000 1.818l-2.268 2.268A2.473 2.473 0 008 11z"></path>
+                                    </svg>
+                                    <span class="text-gray-400 group-hover:text-gray-200 transition-colors duration-150 ease-in-out">Quick action</span>
+                                </button>
+                                <button :class="{ 'opacity-50': tab !== '2' }" class="flex items-center font-medium py-2 px-4 m-2 bg-gray-800 rounded-full group transition duration-500" @click="tab = '2'">
+                                    <svg class="w-4 h-4 fill-current text-purple-600 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.043 6.293S9.79 1.905 6.745 0A5.37 5.37 0 014.72 3.887C3.42 5.03.974 7.6 1 10.34A6.285 6.285 0 004.451 16a3.984 3.984 0 011.394-2.755 3.253 3.253 0 001.246-2.185 5.856 5.856 0 013.1 4.881v.013a5.883 5.883 0 003.428-5.106c.216-2.574-1.194-6.074-2.445-7.218a6.793 6.793 0 01-2.13 2.663z"></path>
+                                    </svg>
+                                    <span class="text-gray-400 group-hover:text-gray-200 transition-colors duration-150 ease-in-out">Quick action</span>
+                                </button>
+                                <button :class="{ 'opacity-50': tab !== '3' }" class="flex items-center font-medium py-2 px-4 m-2 bg-gray-800 rounded-full group transition duration-500" @click="tab = '3'">
+                                    <svg class="w-4 h-4 fill-current text-purple-600 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 10c-1.1 0-2-.9-2-2 0-.2 0-.3.1-.5L3.6 5 5 3.6l2.5 2.5c.2-.1.3-.1.5-.1 1.1 0 2 .9 2 2s-.9 2-2 2z"></path>
+                                    </svg>
+                                    <span class="text-gray-400 group-hover:text-gray-200 transition-colors duration-150 ease-in-out">Quick action</span>
+                                </button>
+                                <button :class="{ 'opacity-50': tab !== '4' }" class="flex items-center font-medium py-2 px-4 m-2 bg-gray-800 rounded-full group transition duration-500" @click="tab = '4'">
+                                    <svg class="w-4 h-4 fill-current text-purple-600 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 9v6a8 8 0 008-8V1a8 8 0 00-8 8zM0 6v3a6 6 0 006 6v-3a6 6 0 00-6-6z"></path>
+                                    </svg>
+                                    <span class="text-gray-400 group-hover:text-gray-200 transition-colors duration-150 ease-in-out">Quick action</span>
+                                </button>
+                                <button :class="{ 'opacity-50': tab !== '5' }" class="flex items-center font-medium py-2 px-4 m-2 bg-gray-800 rounded-full group transition duration-500" @click="tab = '5'">
+                                    <svg class="w-4 h-4 fill-current text-purple-600 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.936 6.007H8.358l1.594-4.685c.3-.997-.897-1.794-1.694-.997L.284 8.3c-.598.598-.199 1.694.698 1.694H7.56l-1.594 4.685c-.3.997.897 1.794 1.694.997L15.633 7.7c.598-.598.2-1.694-.697-1.694z"></path>
+                                    </svg>
+                                    <span class="text-gray-400 group-hover:text-gray-200 transition-colors duration-150 ease-in-out">Quick action</span>
+                                </button>
+                            </div>
+
+                            <div class="relative flex flex-col mt-16">
+
+                                <div class="w-full" x-show="tab === '1'" x-transition:enter="transition ease-in-out duration-700 transform order-first" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-out duration-500 transform absolute" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-110">
+                                    <article class="relative max-w-md mx-auto md:max-w-none">
+                                        <figure class="md:absolute md:inset-y-0 md:right-0 md:w-1/2">
+                                            <img class="w-full h-full object-cover" src="images/tabs-image-01.jpg" width="516" height="387" alt="Tabs 01">
+                                        </figure>
+                                        <div class="relative bg-gray-800 py-8 md:py-16 px-6 md:pr-16 md:max-w-lg lg:max-w-xl">
+                                            <h4 class="h4 mb-2">Optimize and scale, easy to start</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                            <a class="btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6" href="#0">
+                                                <span>Learn more</span>
+                                                <svg class="w-3 h-3 fill-current text-purple-400 flex-shrink-0 ml-2" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 5H0v2h6v4l6-5-6-5z"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="w-full" x-show="tab === '2'" x-transition:enter="transition ease-in-out duration-700 transform order-first" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-out duration-500 transform absolute" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-110">
+                                    <article class="relative max-w-md mx-auto md:max-w-none">
+                                        <figure class="md:absolute md:inset-y-0 md:left-0 md:w-1/2">
+                                            <img class="w-full h-full object-cover" src="images/hero-image-01.jpg" width="516" height="387" alt="Tabs 02">
+                                        </figure>
+                                        <div class="relative bg-gray-800 py-8 md:py-16 px-6 md:pl-16 md:max-w-lg lg:max-w-xl md:ml-auto">
+                                            <h4 class="h4 mb-2">Easy to start, optimize and scale</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                            <a class="btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6" href="#0">
+                                                <span>Learn more</span>
+                                                <svg class="w-3 h-3 fill-current text-purple-400 flex-shrink-0 ml-2" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 5H0v2h6v4l6-5-6-5z"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="w-full" x-show="tab === '3'" x-transition:enter="transition ease-in-out duration-700 transform order-first" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-out duration-500 transform absolute" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-110">
+                                    <article class="relative max-w-md mx-auto md:max-w-none">
+                                        <figure class="md:absolute md:inset-y-0 md:right-0 md:w-1/2">
+                                            <img class="w-full h-full object-cover" src="images/tabs-image-01.jpg" width="516" height="387" alt="Tabs 01">
+                                        </figure>
+                                        <div class="relative bg-gray-800 py-8 md:py-16 px-6 md:pr-16 md:max-w-lg lg:max-w-xl">
+                                            <h4 class="h4 mb-2">Optimize and scale, easy to start</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                            <a class="btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6" href="#0">
+                                                <span>Learn more</span>
+                                                <svg class="w-3 h-3 fill-current text-purple-400 flex-shrink-0 ml-2" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 5H0v2h6v4l6-5-6-5z"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="w-full" x-show="tab === '4'" x-transition:enter="transition ease-in-out duration-700 transform order-first" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-out duration-500 transform absolute" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-110">
+                                    <article class="relative max-w-md mx-auto md:max-w-none">
+                                        <figure class="md:absolute md:inset-y-0 md:left-0 md:w-1/2">
+                                            <img class="w-full h-full object-cover" src="images/hero-image-01.jpg" width="516" height="387" alt="Tabs 02">
+                                        </figure>
+                                        <div class="relative bg-gray-800 py-8 md:py-16 px-6 md:pl-16 md:max-w-lg lg:max-w-xl md:ml-auto">
+                                            <h4 class="h4 mb-2">Easy to start, optimize and scale</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                            <a class="btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6" href="#0">
+                                                <span>Learn more</span>
+                                                <svg class="w-3 h-3 fill-current text-purple-400 flex-shrink-0 ml-2" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 5H0v2h6v4l6-5-6-5z"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="w-full" x-show="tab === '5'" x-transition:enter="transition ease-in-out duration-700 transform order-first" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-out duration-500 transform absolute" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-110">
+                                    <article class="relative max-w-md mx-auto md:max-w-none">
+                                        <figure class="md:absolute md:inset-y-0 md:right-0 md:w-1/2">
+                                            <img class="w-full h-full object-cover" src="images/tabs-image-01.jpg" width="516" height="387" alt="Tabs 01">
+                                        </figure>
+                                        <div class="relative bg-gray-800 py-8 md:py-16 px-6 md:pr-16 md:max-w-lg lg:max-w-xl">
+                                            <h4 class="h4 mb-2">Optimize and scale, easy to start</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                            <a class="btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6" href="#0">
+                                                <span>Learn more</span>
+                                                <svg class="w-3 h-3 fill-current text-purple-400 flex-shrink-0 ml-2" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 5H0v2h6v4l6-5-6-5z"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="overflow-hidden">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="py-20 border-t border-gray-700">
+
+                        <div class="max-w-3xl mx-auto text-center pb-20">
+                            <h2 class="h2">From the big picture to every tiny detail, we got you covered.</h2>
+                        </div>
+
+                        <div class="grid gap-20">
+
+                            <div class="md:grid md:grid-cols-12 md:gap-6 items-center">
+                                <div class="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:rtl">
+                                    <img class="mx-auto md:max-w-none" src="images/features-02-image.png" width="540" height="520" alt="Features 02">
+                                </div>
+                                <div class="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6">
+                                    <div class="md:pl-4 lg:pl-12 xl:pl-16">
+                                        <div class="font-architects-daughter text-xl text-purple-600 mb-2">Be the change you want to see</div>
+                                        <div class="mt-6">
+                                            <h4 class="h4 mb-2"><span class="text-purple-600">.</span> For developers</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </div>
+                                        <div class="mt-6">
+                                            <h4 class="h4 mb-2"><span class="text-teal-500">.</span> For designers</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </div>
+                                        <div class="mt-6">
+                                            <h4 class="h4 mb-2"><span class="text-pink-500">.</span> For teams</h4>
+                                            <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="py-20 border-t border-gray-700">
+
+                        <div class="max-w-3xl mx-auto text-center pb-20">
+                            <h2 class="h2">Refreshing news for developers and designers</h2>
+                        </div>
+
+                        <div class="max-w-sm mx-auto md:max-w-none">
+                            <div class="grid gap-12 md:grid-cols-3 md:col-gap-6 md:row-gap-8 items-start">
+
+                                <article class="flex flex-col h-full">
+                                    <header>
+                                        <a class="block mb-4" href="blog-post.html">
+                                            <figure class="relative h-0 pb-9/16 overflow-hidden rounded-sm">
+                                                <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="images/news-01.jpg" width="352" height="198" alt="News 01">
+                                            </figure>
+                                        </a>
+                                        <div class="mb-3">
+                                            <ul class="flex flex-wrap text-xs font-medium -m-1">
+                                                <li class="m-1">
+                                                    <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" href="#0">Product</a>
+                                                </li>
+                                                <li class="m-1">
+                                                    <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" href="#0">Engineering</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="h4 mb-2">
+                                            <a class="hover:text-gray-100 transition duration-150 ease-in-out" href="blog-post.html">The quick brown fox jumped over the lazy dog.</a>
+                                        </h3>
+                                    </header>
+                                    <p class="text-lg text-gray-400 flex-grow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <footer class="flex items-center mt-4">
+                                        <a href="#0">
+                                            <img class="rounded-full flex-shrink-0 mr-4" src="images/news-author-01.jpg" width="40" height="40" alt="Author 01">
+                                        </a>
+                                        <div class="font-medium">
+                                            <a class="text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Anastasia Dan</a>
+                                            <span class="text-gray-700"> - </span>
+                                            <span class="text-gray-500">Jan 17, 2020</span>
+                                        </div>
+                                    </footer>
+                                </article>
+
+                                <article class="flex flex-col h-full">
+                                    <header>
+                                        <a class="block mb-4" href="blog-post.html">
+                                            <figure class="relative h-0 pb-9/16 overflow-hidden rounded-sm">
+                                                <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="images/news-02.jpg" width="352" height="198" alt="News 02">
+                                            </figure>
+                                        </a>
+                                        <div class="mb-3">
+                                            <ul class="flex flex-wrap text-xs font-medium -m-1">
+                                                <li class="m-1">
+                                                    <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-pink-500 hover:bg-pink-600 transition duration-150 ease-in-out" href="#0">Desing</a>
+                                                </li>
+                                                <li class="m-1">
+                                                    <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" href="#0">Engineering</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="h4 mb-2">
+                                            <a class="hover:text-gray-100 transition duration-150 ease-in-out" href="blog-post.html">The quick brown fox jumped over the lazy dog.</a>
+                                        </h3>
+                                    </header>
+                                    <p class="text-lg text-gray-400 flex-grow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <footer class="flex items-center mt-4">
+                                        <a href="#0">
+                                            <img class="rounded-full flex-shrink-0 mr-4" src="images/news-author-02.jpg" width="40" height="40" alt="Author 02">
+                                        </a>
+                                        <div class="font-medium">
+                                            <a class="text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Markus Barker</a>
+                                            <span class="text-gray-700"> - </span>
+                                            <span class="text-gray-500">Jan 12, 2020</span>
+                                        </div>
+                                    </footer>
+                                </article>
+
+                                <article class="flex flex-col h-full">
+                                    <header>
+                                        <a class="block mb-4" href="blog-post.html">
+                                            <figure class="relative h-0 pb-9/16 overflow-hidden rounded-sm">
+                                                <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="images/news-03.jpg" width="352" height="198" alt="News 03">
+                                            </figure>
+                                        </a>
+                                        <div class="mb-3">
+                                            <ul class="flex flex-wrap text-xs font-medium -m-1">
+                                                <li class="m-1">
+                                                    <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" href="#0">Product</a>
+                                                </li>
+                                                <li class="m-1">
+                                                    <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-teal-500 hover:bg-teal-600 transition duration-150 ease-in-out" href="#0">Tutorials and articles</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="h4 mb-2">
+                                            <a class="hover:text-gray-100 transition duration-150 ease-in-out" href="blog-post.html">The quick brown fox jumped over the lazy dog.</a>
+                                        </h3>
+                                    </header>
+                                    <p class="text-lg text-gray-400 flex-grow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <footer class="flex items-center mt-4">
+                                        <a href="#0">
+                                            <img class="rounded-full flex-shrink-0 mr-4" src="images/news-author-03.jpg" width="40" height="40" alt="Author 03">
+                                        </a>
+                                        <div class="font-medium">
+                                            <a class="text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Lisa Crockett</a>
+                                            <span class="text-gray-700"> - </span>
+                                            <span class="text-gray-500">Jan 9, 2020</span>
+                                        </div>
+                                    </footer>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="bg-purple-600 py-10 px-8 md:py-16 md:px-12">
+                        <div class="flex flex-col lg:flex-row justify-between items-center">
+                            <div class="mb-6 lg:mr-16 lg:mb-0 text-center lg:text-left lg:w-1/2">
+                                <h3 class="h3 text-white mb-2">Stay in the loop</h3>
+                                <p class="text-purple-200 text-lg">Join our newsletter to get top news before anyone else.</p>
+                            </div>
+                            <form class="w-full lg:w-1/2">
+                                <div class="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
+                                    <input type="email" class="w-full appearance-none bg-purple-700 border border-purple-500 focus:border-purple-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-purple-400" placeholder="Your best email…" aria-label="Your best email…">
+                                    <a class="btn text-purple-600 bg-purple-100 hover:bg-white shadow" href="#0">Subscribe</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+                    <div class="grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12">
+                        <div class="md:col-span-4 lg:col-span-5">
+                            <div class="mb-2">
+                                <a class="inline-block" href="./">
+                                    <svg class="w-8 h-8 fill-current text-purple-600" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31.952 14.751a260.51 260.51 0 00-4.359-4.407C23.932 6.734 20.16 3.182 16.171 0c1.634.017 3.21.28 4.692.751 3.487 3.114 6.846 6.398 10.163 9.737.493 1.346.811 2.776.926 4.262zm-1.388 7.883c-2.496-2.597-5.051-5.12-7.737-7.471-3.706-3.246-10.693-9.81-15.736-7.418-4.552 2.158-4.717 10.543-4.96 16.238A15.926 15.926 0 010 16C0 9.799 3.528 4.421 8.686 1.766c1.82.593 3.593 1.675 5.038 2.587 6.569 4.14 12.29 9.71 17.792 15.57-.237.94-.557 1.846-.952 2.711zm-4.505 5.81a56.161 56.161 0 00-1.007-.823c-2.574-2.054-6.087-4.805-9.394-4.044-3.022.695-4.264 4.267-4.97 7.52a15.945 15.945 0 01-3.665-1.85c.366-3.242.89-6.675 2.405-9.364 2.315-4.107 6.287-3.072 9.613-1.132 3.36 1.96 6.417 4.572 9.313 7.417a16.097 16.097 0 01-2.295 2.275z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="text-gray-400">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</div>
+                        </div>
+                        <div class="md:col-span-8 lg:col-span-7 grid sm:grid-cols-3 gap-8">
+                            <div class="text-sm">
+                                <h6 class="text-gray-200 font-medium mb-1">Products</h6>
+                                <ul>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Web Studio</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">DynamicBox Flex</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Programming Forms</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-sm">
+                                <h6 class="text-gray-200 font-medium mb-1">Resources</h6>
+                                <ul>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Nostrud exercitation</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Visual mockups</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Nostrud exercitation</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Visual mockups</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Nostrud exercitation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-sm">
+                                <h6 class="text-gray-200 font-medium mb-1">Company</h6>
+                                <ul>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Consectetur adipiscing</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Labore et dolore</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Consectetur adipiscing</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Labore et dolore</a>
+                                    </li>
+                                    <li class="mb-1">
+                                        <a class="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">Consectetur adipiscing</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:flex md:items-center md:justify-between">
+                        <ul class="flex mb-4 md:order-1 md:ml-4 md:mb-0">
+                            <li>
+                                <a class="flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out" href="#0">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 11.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H8c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4c.7-.5 1.3-1.1 1.7-1.8z"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="ml-4">
+                                <a class="flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out" href="#0">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="ml-4">
+                                <a class="flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out" href="#0">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.023 24L14 17h-3v-3h3v-2c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V14H21l-1 3h-2.72v7h-3.257z"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="ml-4">
+                                <a class="flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out" href="#0">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="20.145" cy="11.892" r="1"></circle>
+                                        <path d="M16 20c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm0-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z"></path>
+                                        <path d="M20 24h-8c-2.056 0-4-1.944-4-4v-8c0-2.056 1.944-4 4-4h8c2.056 0 4 1.944 4 4v8c0 2.056-1.944 4-4 4zm-8-14c-.935 0-2 1.065-2 2v8c0 .953 1.047 2 2 2h8c.935 0 2-1.065 2-2v-8c0-.935-1.065-2-2-2h-8z"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="ml-4">
+                                <a class="flex justify-center items-center text-purple-600 bg-gray-800 hover:text-gray-100 hover:bg-purple-600 rounded-full transition duration-150 ease-in-out" href="#0">
+                                    <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.3 8H8.7c-.4 0-.7.3-.7.7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.7V8.7c-.1-.4-.4-.7-.8-.7zM12.7 21.6h-2.3V14h2.4v7.6h-.1zM11.6 13c-.8 0-1.4-.7-1.4-1.4 0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4-.1.7-.7 1.4-1.4 1.4zm10 8.6h-2.4v-3.7c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8h-2.4V14h2.3v1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2h.1z"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="text-gray-400 text-sm mr-4">&copy; 2020 Product. All rights reserved.</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
 </body>
+
 </html>
