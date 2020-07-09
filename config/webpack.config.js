@@ -7,7 +7,7 @@ const plugins = require('./webpack.plugins');
 module.exports = {
   context: path.join(config.root, config.paths.src),
   entry: [
-    path.join(config.root, config.paths.src, 'js/scripts.js'),
+    path.join(config.root, config.paths.src, 'js/main.js'),
     path.join(config.root, config.paths.src, 'css/style.scss'),
   ],
   output: {
