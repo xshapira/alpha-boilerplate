@@ -1,7 +1,7 @@
 module.exports = {
   purge: [
     'src/**/*.html',
-  ],  
+  ],
   theme: {    
     boxShadow: {
       // xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
