@@ -26,7 +26,6 @@ module.exports = {
     watchContentBase: true,
     hot: true,
     open: true,
-    port: config.port,
     host: config.dev_host,
   },
   module: {
