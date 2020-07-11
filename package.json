@@ -65,7 +65,6 @@
     "postcss-loader": "^3.0.0",
     "postcss-sass": "^0.4.4",
     "sass-loader": "^7.3.1",
-    "style-loader": "^1.2.1",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-scss": "^3.18.0",

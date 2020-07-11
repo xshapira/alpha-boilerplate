@@ -33,11 +33,6 @@ const js = {
   ],
 };
 
-// Style loaders
-const styleLoader = {
-  loader: 'style-loader',
-};
-
 const cssLoader = {
   loader: 'css-loader',
   options: {
@@ -59,7 +54,7 @@ const postcssLoader = {
 const css = {
   test: /\.css$/,
   use: [
-    config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
+    MiniCssExtractPlugin.loader,
     cssLoader,
     postcssLoader,
   ],
@@ -68,7 +63,7 @@ const css = {
 const sass = {
   test: /\.s[c|a]ss$/,
   use: [
-    config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
+    MiniCssExtractPlugin.loader,
     cssLoader,
     postcssLoader,
     {
@@ -83,7 +78,7 @@ const sass = {
 const less = {
   test: /\.less$/,
   use: [
-    config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
+    MiniCssExtractPlugin.loader,
     cssLoader,
     postcssLoader,
     {
