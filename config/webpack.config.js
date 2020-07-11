@@ -32,5 +32,6 @@ module.exports = {
   module: {
     rules: loaders,
   },
+  stats: 'errors-only',
   plugins,
 };

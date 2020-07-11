@@ -87,7 +87,7 @@ const favicons = new FaviconsWebpackPlugin({
 
 // Webpack bar
 const webpackBar = new WebpackBar({
-  color: '#ff6469',
+  color: '#5F48FF',
 });
 
 // Google analytics
