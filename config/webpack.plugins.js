@@ -47,7 +47,7 @@ const cssExtract = new MiniCssExtractPlugin({
 
 // HTML generation
 const paths = [];
-const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map((dir) => {
+const generateHTMLPlugins = () => glob.sync('./src/*.html').map((dir) => {
   const filename = path.basename(dir);
 
   if (filename !== '404.html') {
