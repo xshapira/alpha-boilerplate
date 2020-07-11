@@ -32,7 +32,8 @@
     "lint:js": "./node_modules/.bin/eslint \"src/**/*.js\"",
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js",
-    "deploy": "node ./config/site.deploy.js"
+    "deploy": "node ./config/site.deploy.js",
+    "postinstall": "npm run start"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
