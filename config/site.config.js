@@ -9,7 +9,7 @@ if (!ROOT) {
 
 const config = {
   // Your website's name, used for favicon meta tags
-  site_name: 'Open PRO template',
+  site_name: 'Alpha HTML Template',
 
   // Your website's description, used for favicon meta tags
   site_description: 'A Cruip template',
