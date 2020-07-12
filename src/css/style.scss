@@ -7,9 +7,3 @@
 @import 'components/components.scss';
 
 @tailwind utilities;
-
-@responsive {
-    .rtl {
-        direction: rtl;
-    }
-}
